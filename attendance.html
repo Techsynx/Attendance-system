@@ -1,0 +1,225 @@
+<html>
+<head>
+    <title>Timesheets</title>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const App = () => {
+            const [time, setTime] = useState(new Date());
+
+            useEffect(() => {
+                const timer = setInterval(() => {
+                    setTime(new Date());
+                }, 1000);
+                return () => clearInterval(timer);
+            }, []);
+
+            return (
+                <div className="flex flex-col md:flex-row h-screen">
+                    <aside className="w-full md:w-1/5 bg-gray-900 text-white p-6">
+                        <div className="mb-8">
+                            <div className="h-12 w-12 bg-gray-700 rounded-full mb-4" >
+                                
+                                <img src="https://media-mct1-1.cdn.whatsapp.net/v/t61.24694-24/427385269_419921960580562_785683350085619305_n.jpg?ccb=11-4&oh=01_Q5AaIOTh41rsCQ7f_BGSOrmqoXI0v3RUz4MGtQdtEAofv6nR&oe=66E92586&_nc_sid=5e03e0&_nc_cat=100" alt="Your Image" className="h-full w-full rounded-full" />
+                                </div>
+
+
+                            
+                            <h1 className="text-lg font-semibold">Techsynx Attendance Tracking System</h1>
+                        </div>
+                        <nav>
+                            <ul>
+                                <li className="mb-4">
+                                    <a href="#" className="flex items-center text-gray-400 hover:text-white">
+                                        <i className="fas fa-tachometer-alt mr-3"></i>
+                                        Dashboard
+                                    </a>
+                                </li>
+                                <li className="mb-4">
+                                    <a href="#" className="flex items-center text-white">
+                                        <i className="fas fa-clock mr-3"></i>
+                                        Timesheets
+                                    </a>
+                                </li>
+                                <li className="mb-4">
+                                    <a href="#" className="flex items-center text-gray-400 hover:text-white">
+                                        <i className="fas fa-cogs mr-3"></i>
+                                        Administration
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div className="mt-auto">
+                            <a href="#" className="flex items-center text-gray-400 hover:text-white">
+                                <i className="fas fa-sign-out-alt mr-3"></i>
+                                Log out
+                            </a>
+                        </div>
+                    </aside>
+                    <main className="flex-1 p-8 fade-in">
+                        <header className="flex justify-between items-center mb-8">
+                            <h2 className="text-2xl font-semibold">Timesheets – August 2024</h2>
+                            <div className="flex items-center">
+                                <div className="mr-4">
+                                    <i className="fas fa-bell text-gray-400"></i>
+                                </div>
+                                <div className="flex items-center">
+                                    <div className="h-10 w-10 bg-gray-300 rounded-full mr-2">
+                                        <img src="https://media.licdn.com/dms/image/v2/D4D35AQGIbbG2mUnbwQ/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1708028263083?e=1726311600&v=beta&t=g5kpBRaT1DgO5oKRhNpoHd9_sNV8gHgGYbkyIBjDB84" alt="Your Image" className="h-full w-full rounded-full" /></div>
+                                    <div>
+                                        
+                                    <h3 className="text-lg font-semibold">Subhan ALi</h3>
+                                        <h3 className="text-sm font-semibold">Founder</h3>
+                                        <p className="text-xs text-gray-500">Techsynx</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </header>
+                        <section className="flex flex-col md:flex-row items-center mb-8">
+                            <div className="flex items-center mr-8 mb-4 md:mb-0">
+                                <div className="h-16 w-16 bg-gray-300 rounded-full mr-4">
+                                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQGYoGDyfC_rtQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1724924842822?e=1730937600&v=beta&t=smoXns2eXYuUTP9Zv8AY9AQUaaUe1dRn-4P1x9SIBFI" alt="Your Image" className="h-full w-full rounded-full" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-semibold">Huzaifa Malik</h3>
+                                    <p className="text-sm text-blue-500">Techsynx CEO</p>
+                                    <p className="text-sm text-gray-500">Location: Pakistan</p>
+                                </div>
+                            </div>
+                            <div className="flex items-center">
+                                <div className="flex items-center mr-8">
+                                    <div className="relative w-16 h-16">
+                                        <div className="absolute inset-0 rounded-full border-4 border-yellow-400"></div>
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <span className="text-xl font-semibold">82%</span>
+                                        </div>
+                                    </div>
+                                    <p className="ml-2 text-sm text-gray-500">Capacity</p>
+                                </div>
+                                <div className="flex items-center">
+                                    <div className="relative w-16 h-16">
+                                        <div className="absolute inset-0 rounded-full border-4 border-blue-400"></div>
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <span className="text-xl font-semibold">55%</span>
+                                        </div>
+                                    </div>
+                                    <p className="ml-2 text-sm text-gray-500">Attendance</p>
+                                </div>
+                            </div>
+                        </section>
+                        <section className="mb-8">
+                            <h3 className="text-lg font-semibold mb-4">Techsynx’s timesheets</h3>
+                            <table className="w-full bg-white rounded-lg shadow overflow-hidden">
+                                <thead>
+                                    <tr className="bg-gray-100 text-left text-gray-600">
+                                        <th className="p-4">Date</th>
+                                        <th className="p-4">Start time</th>
+                                        <th className="p-4">Finish time</th>
+                                        <th className="p-4">Work time</th>
+                                        <th className="p-4">Exceptions</th>
+                                        <th className="p-4">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr className="border-b">
+                                        <td className="p-4">23 Aug 2019</td>
+                                        <td className="p-4">06:17AM</td>
+                                        <td className="p-4">--</td>
+                                        <td className="p-4">4:35</td>
+                                        <td className="p-4">None</td>
+                                        <td className="p-4">
+                                            <span className="bg-red-100 text-red-500 px-2 py-1 rounded">Tracking</span>
+                                            <i className="fas fa-pen text-gray-400 ml-2"></i>
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b bg-gray-50">
+                                        <td className="p-4">22 Aug 2019</td>
+                                        <td className="p-4">04:30AM</td>
+                                        <td className="p-4">03:25PM</td>
+                                        <td className="p-4">10:05</td>
+                                        <td className="p-4">Overtime, Offsite</td>
+                                        <td className="p-4">
+                                            <span className="bg-yellow-100 text-yellow-500 px-2 py-1 rounded">Pending</span>
+                                            <i className="fas fa-pen text-gray-400 ml-2"></i>
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="p-4">21 Aug 2019</td>
+                                        <td className="p-4">10:39AM</td>
+                                        <td className="p-4">07:10PM</td>
+                                        <td className="p-4">4:20</td>
+                                        <td className="p-4">Irregular schedule</td>
+                                        <td className="p-4">
+                                            <span className="bg-green-100 text-green-500 px-2 py-1 rounded">Approved</span>
+                                            <i className="fas fa-pen text-gray-400 ml-2"></i>
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b bg-gray-50">
+                                        <td className="p-4">20 Aug 2019</td>
+                                        <td className="p-4">08:20AM</td>
+                                        <td className="p-4">02:49PM</td>
+                                        <td className="p-4">8:05</td>
+                                        <td className="p-4">None</td>
+                                        <td className="p-4">
+                                            <span className="bg-green-100 text-green-500 px-2 py-1 rounded">Approved</span>
+                                            <i className="fas fa-pen text-gray-400 ml-2"></i>
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="p-4">19 Aug 2019</td>
+                                        <td className="p-4">07:22AM</td>
+                                        <td className="p-4">11:13PM</td>
+                                        <td className="p-4">7:54</td>
+                                        <td className="p-4">None</td>
+                                        <td className="p-4">
+                                            <span className="bg-green-100 text-green-500 px-2 py-1 rounded">Approved</span>
+                                            <i className="fas fa-pen text-gray-400 ml-2"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                        <section className="flex justify-between items-center">
+                            <div>
+                                <h3 className="text-lg font-semibold">Current Time</h3>
+                                <p className="text-xl">{time.toLocaleTimeString()}</p>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold">Current Date</h3>
+                                <p className="text-xl">{time.toLocaleDateString()}</p>
+                            </div>
+                        </section>
+                    </main>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
